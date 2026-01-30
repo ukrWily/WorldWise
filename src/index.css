@@ -66,6 +66,12 @@ input:focus {
   font-weight: 600;
   padding: 1rem 3rem;
   border-radius: 5px;
+  box-shadow: inset 2px 2px 5px var(--color-brand--1);
+  transition: all 0.5s;
+}
+.cta:hover {
+  background-color: var(--color-brand--1);
+  transform: scale(1.05);
 }
 
 /*
