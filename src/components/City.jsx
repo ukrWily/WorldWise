@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import { useCities } from "../contexts/CitiesContext";
 import { useEffect } from "react";
 import styles from "./City.module.css";
+import Spinner from "./Spinner";
+import BackButton from "./BackButton";
 
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en", {
@@ -23,8 +25,10 @@ function City() {
 
   const { cityName, emoji, date, notes } = currentCity;
 
+  if (isLoading) return <Spinner />;
+
   return (
-    <div className={styles.city}>
+    <div className={`${styles.city} ${id}`}>
       <div className={styles.row}>
         <h6>City name</h6>
         <h3>
@@ -54,8 +58,9 @@ function City() {
           Check out {cityName} on Wikipedia &rarr;
         </a>
       </div>
-
-      <div>{/* <ButtonBack /> */}</div>
+      <div>
+        <BackButton />
+      </div>
     </div>
   );
 }
